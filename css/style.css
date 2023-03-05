@@ -1,0 +1,349 @@
+* 
+{
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Open Sans';
+}
+
+body {
+    background-color: #424242;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 70px 36px 92px 46px;
+}
+
+/* Checkboxes */
+
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    max-width: 176px;
+    max-height: 309px;
+    margin-right: 58px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.checkboxes__title {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+label {
+    position: relative;
+    padding-left: 23px;
+    color: #333;
+    cursor: pointer;
+}
+
+label:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.checkboxes__inp {
+    display: none;
+}
+
+.checkboxes__inp + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #CCB26E;
+    border-radius: 3px;
+}
+
+.checkboxes__inp + span::before {
+    content: url('../img/check.svg');
+    position: absolute;
+    top: -3px;
+    right: 0;
+    bottom: 0;
+    left: 2px;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.checkboxes__inp:checked + span::before {
+    opacity: 1;
+}
+
+/* Select */
+
+.select {
+    margin-right: 58px;
+}
+
+.choices {
+    width: 100%;
+    max-width: 176px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.choices[data-type*=select-one]:after {
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    border-width: 0px;
+    border-right: 1px solid #666666;
+    border-top: 1px solid #666666;
+    transform: rotate(135deg);
+    margin-top: -6px;
+    z-index: 3;
+}
+
+.choices[data-type*=select-one].is-open:after {
+    border-width: 0px;
+    border-left: 1px solid #CCB26E;
+    border-bottom: 1px solid #CCB26E;
+    margin-top: -2px;
+}
+
+.choices__inner {
+    position: relative;
+    width: 176px;
+    min-height: auto;
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #CCB26E;
+    border-radius: 10px;
+    color: #333;
+    z-index: 2;
+}
+
+.choices__placeholder {
+    opacity: 1;
+}
+
+.choices__list--dropdown .choices__item--selectable, .choices__list[aria-expanded] .choices__item--selectable {
+    padding-right: 0;
+}
+
+.choices[data-type*="select-one"] .choices__inner {
+    padding-bottom: 10px;
+}
+
+.choices[data-type*="select-one"] .choices__input {
+    padding: 10px 0;
+}
+
+.choices__list {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.choices__list--single {
+    display: inline-block;
+    padding: 0;
+    width: 100%;
+}
+
+[dir="rtl"] .choices__list--single {
+    padding: 0;
+}
+
+.choices__list--multiple .choices__item {
+    border-radius: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.choices__list--multiple .choices__item[data-deletable] {
+    padding-right: 0;
+}
+  
+[dir="rtl"] .choices__list--multiple .choices__item {
+    margin: 0;
+}
+
+.is-focused .choices__inner,
+.is-open .choices__inner {
+  border: 1px solid #CCB26E;
+  border-radius: 10px;
+}
+
+.is-open .choices__list--dropdown,
+.is-open .choices__list[aria-expanded] {
+  border-color: #CCB26E;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.choices__item--disabled {
+    opacity: 0.5;
+}
+
+/* Map */
+
+.map {
+    width: 460px;
+    height: 460px;
+    margin-right: 58px;
+    margin-bottom: 50px;
+}
+
+[class*="ground-pane"] {
+    filter: grayscale(1);
+}
+
+.ymaps-2-1-79-controls__toolbar_right,
+.ymaps-2-1-79-controls__toolbar_left,
+.ymaps-2-1-79-zoom,
+.ymaps-2-1-79-map-copyrights-promo,
+.ymaps-2-1-79-controls__control,
+.ymaps-2-1-79-copyright__wrap {
+    display: none!important;
+}
+
+/* Scroll */
+
+.customScroll {
+    width: 399px;
+    height: 310px;
+    margin-right: 58px;
+    padding: 20px 30px;
+    line-height: 23.8px;
+    background-color: #fff;
+    color: #333;
+}
+
+.simplebar-scrollbar::before {
+    background-color: #CCB26E;
+}
+
+.simplebar-content-wrapper {
+    overflow: auto;
+}
+
+/* Tel-mask */
+
+.tel-mask {
+    margin-right: 58px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 38px 30px;
+    background-color: #000;
+    border-radius: 10px;
+}
+
+.form__label {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0;
+    margin-bottom: 31px!important;
+    padding: 0;
+}
+
+.js-validate-error-label {
+    padding-left: 20px;
+    padding-bottom: 4px;
+}
+
+.form__inputs {
+    width: 380px;
+    padding: 24px 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.form__inputs::placeholder {
+    font-size: 16px;
+    color: #999;
+}
+
+.form__btn {
+    margin-right: auto;
+    padding: 19px 53px;
+    font-size: 20px;
+    background-color: #FF5C00;
+    border: 1px solid #FF5C00;
+    border-radius: 10px;
+    color: #fff;
+}
+
+/* Tooltip */
+
+.section__tooltip {
+    position: relative;
+    max-width: 375px;
+    padding: 20px 78px 0 29px;
+    font-size: 16px;
+    line-height: 23.8px;
+    background-color: #fff;
+    color: #333;
+}
+
+.tooltip {
+    position: relative;
+    bottom: 24px;
+    left: 225px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tooltip::before, .tooltip::after {
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+    transition: all ease 0.3s;
+}
+
+.tooltip::before {
+    content: "";
+    border-width: 12px 8px 0 8px;
+    border-style: solid;
+    border-color: #666 transparent transparent transparent;
+    top: -19px;
+    margin-left: -8px;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    background: #666;
+    top: -15px;
+    transform: translateY(-100%);
+    font-size: 12px;
+    line-height: 23.8px;
+    margin-left: -80px;
+    width: 125px;
+    color: #eee;
+    padding: 0.7px 15px;
+}
+
+/* Hover states */
+
+.tooltip:hover::before, .tooltip:hover::after,
+.tooltip:focus::before, .tooltip:focus::after {
+    opacity: 1;
+}
+
+.tooltip__icon path {
+    transition: fill .3s ease-in-out;
+}
+
+.tooltip__icon:hover path {
+    fill: #CCB26E;
+}
+
+.tooltip:focus .tooltip__icon path {
+    fill: #CCB26E;
+    outline: none;
+}
